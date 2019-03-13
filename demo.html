@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<title>&lt;inline-confirmation&gt;</title>
+<style>
+  body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  button {
+    border: 1px solid Khaki;
+    background-color: tomato;
+    font-family: monospace;
+    font-size: 24px;
+    padding: 0.3em 0.7em;
+    width: 7em;
+  }
+</style>
+
+<main>
+  <p id="status">&nbsp;</p>
+
+  <inline-confirmation>
+    <span slot="confirm">Are you sure?</span>
+    <button type="button" slot="content">Remove</button>
+  </inline-confirmation>
+</main>
+
+
+
+<script type="module">
+  import './mod.js';
+
+  let status = document.querySelector('#status');
+  let confirm = document.querySelector('inline-confirmation');
+  let btn = document.querySelector('button');
+  btn.addEventListener('click', () => {
+    confirm.active = true;
+    status.innerHTML = '&nbsp;';
+  });
+
+  confirm.addEventListener('confirm', () => {
+    status.textContent = 'Confirmed delete';
+  });
+
+  confirm.addEventListener('cancel', () => {
+    status.textContent = 'Canceled';
+  });
+</script>
