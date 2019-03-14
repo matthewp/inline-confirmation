@@ -16,7 +16,7 @@ styles.textContent = /* css */ `
     border: none;
     background-color: transparent;
     cursor: pointer;
-    color: inherit;
+    color: var(--confirm-button-color, inherit);
     font-size: 100%;
     text-decoration: underline;
   }

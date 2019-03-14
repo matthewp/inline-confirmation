@@ -1,0 +1,21 @@
+{
+  "name": "inline-confirmation",
+  "version": "1.0.0",
+  "description": "A web component that shows an inline confirmation message",
+  "main": "mod.js",
+  "module": "mod.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewp/inline-confirmation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/matthewp/inline-confirmation/issues"
+  },
+  "homepage": "https://github.com/matthewp/inline-confirmation#readme"
+}
