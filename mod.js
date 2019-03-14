@@ -8,11 +8,6 @@ styles.textContent = /* css */ `
     padding: 5px;
   }
 
-  .active {
-    background-color: var(--active-bg, #c21807);
-    color: var(--active-fg, #000);
-  }
-
   .active button.link:hover {
     color: #fff;
   }
@@ -27,11 +22,7 @@ styles.textContent = /* css */ `
   }
 
   button.link:hover {
-    color: var(--theme-accent);
-  }
-
-  button.link:focus {
-    outline: none;
+    color: var(--confirm-button-hover-color);
   }
 
   ::slotted([slot=confirm]) {
