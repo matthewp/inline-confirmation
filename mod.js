@@ -1,5 +1,9 @@
 const styles = document.createElement('style');
 styles.textContent = /* css */ `
+  :host {
+    display: inline-block;
+  }
+
   .inline-confirm {
     padding: 5px;
   }
@@ -117,7 +121,7 @@ class InlineConfirmation {
     let eventName = ev.target.dataset.event;
     let event = new CustomEvent(eventName);
     this.host.dispatchEvent(event);
-    this.update({ active: false });
+    this.host.active = false;
   }
 
   update(data = {}) {
@@ -129,10 +133,18 @@ class InlineConfirmation {
 const VIEW = Symbol('view');
 
 class InlineConfirmationElement extends HTMLElement {
+  static get observedAttributes() {
+    return ['active'];
+  }
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
     this[VIEW] = new InlineConfirmation(this);
+  }
+
+  attributeChangedCallback(prop, _, newVal) {
+    this[prop] = newVal === '';
   }
 
   connectedCallback() {
@@ -152,6 +164,13 @@ class InlineConfirmationElement extends HTMLElement {
   }
 
   set active(active) {
+    let hasAttr = this.hasAttribute('active');
+    if(active && !hasAttr) {
+      this.setAttribute('active', '');
+    } else if(!active && hasAttr) {
+      this.removeAttribute('active');
+    }
+
     this[VIEW].update({ active });
   }
 }
