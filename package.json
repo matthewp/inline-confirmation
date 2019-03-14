@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/matthewp/inline-confirmation.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["web component"],
+  "author": "Matthew Phillips",
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/matthewp/inline-confirmation/issues"
